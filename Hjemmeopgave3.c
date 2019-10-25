@@ -24,13 +24,13 @@ int main()
     int i=0;
     int size=0;
     
-    //promt user for size of array 1.
+    //promt user for size of arrays
     printf("Enter size of the arrays(between 0-100):");
     scanf("%d",&size);
  
-    //promt user for numbers in array 1.
+    //promt user for numbers in first array 
     printf("Enter elements in the first array:\n");
-    while(i<size)         
+    while(i<size)         //while i less then size
     {
         scanf("%lf",&array1[i]);
         i++;
