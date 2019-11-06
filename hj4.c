@@ -2,7 +2,7 @@
 #include <string.h>
 
 //lav fragt priserne globale
-//spørg kluas om hvordan jeg implementere discount
+
 
 
 
