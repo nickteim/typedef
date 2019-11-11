@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////
 //
-// Source file :Hjemmeopgave4
+// Source file :hj4.c
 // Author :Nick Rokkjær Dalsager
-// Date : 10-11-2018
+// Date : 11-11-2018
 // Version :1
 //
 // Description : Let the user buy an amount of carrots,
@@ -28,7 +28,9 @@ void get_number(void);
 void show_menu(void);
 int get_input(struct Product *);
 void chech_out(struct Product *);
+//veriable declaration
 float number;
+
 
 //Declaration of contans for product
 
@@ -46,12 +48,12 @@ const int S_FREIGHT = 12;
 
 //carrots
 const int C_PRICE = 28;
-const int C_FREIGHTt = 12;
+const int C_FREIGHT = 12;
 
 
 //Declaration of contans for discount
 const int DISCOUNT_ONE = 5;
-const int DISCOUNT_TEO = 10;
+const int DISCOUNT_TWO = 10;
 const int DISCOUNT_THREE = 15;
 
 
@@ -152,39 +154,39 @@ int get_input(struct Product *product)
             get_number();
             float C_freightPrice = number * C_FREIGHT;   //gets freight price
             float C_kgPrice = number * C_PRICE;       //gets price of product in kg
-            float C_totalPrice = C_freightPrice + C_kgPrice;    //add the two above numbers to get a total price
+            float C_totalprice = C_freightPrice + C_kgPrice;    //add the two above numbers to get a total price
 
 
             printf("\n You have purchased for %.1fkr \n", C_kgPrice);
 
-             if (C_totalPrice <= 100)    //if price is less then 100 kr
+             if (C_totalprice <= 100)    //if price is less then 100 kr
                 {
                   printf(" There is no discount and the freight price is %.1fkr\n",C_freightPrice);
-                  product->carrots = C_totalPrice;
+                  product->carrots = C_totalprice;
                  }
 
-             if (C_totalPrice>=101 && C_totalPrice<=350)    //between 101 and 350 - 5 % discount
+             if (C_totalprice>=101 && C_totalprice<=350)    //between 101 and 350 - 5 % discount
                 {
                   printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_ONE, C_freightPrice);
-                  float New=(C_totalPrice/100)*DISCOUNT_ONE;
-                  float total=C_totalPrice-New;
+                  float New=(C_totalprice/100)*DISCOUNT_ONE;
+                  float total=C_totalprice-New;
                   product->carrots = total;
                  }
 
-             if(C_totalPrice>=351 && C_totalPrice<=600)  //between 351 and 600 - 10 % discount
+             if(C_totalprice>=351 && C_totalprice<=600)  //between 351 and 600 - 10 % discount
               {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_TWO, C_freightPrice);
-                 float New=(C_totalPrice/100)*DISCOUNT_TWO;
-                 float total=C_totalPrice-New;
+                 float New=(C_totalprice/100)*DISCOUNT_TWO;
+                 float total=C_totalprice-New;
                  product->carrots = total;
 
                }
 
-            if(C_totalPrice>=601)   //over 600 - 15 % discount
+            if(C_totalprice>=601)   //over 600 - 15 % discount
               {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_THREE, C_freightPrice);
-                 float New=(C_totalPrice/100)*DISCOUNT_THREE;
-                 float total=C_totalPrice-New;
+                 float New=(C_totalprice/100)*DISCOUNT_THREE;
+                 float total=C_totalprice-New;
                  product->carrots = total;
                 }
 
@@ -199,39 +201,39 @@ int get_input(struct Product *product)
         case 'p':
             printf("Enter number of potatoes in kg: ");
             get_number();
-            float P_freightPrice = number * P_FREIGHT;
+            float P_freightPrice = number * P_FREIGHT ;
             float P_kgPrice = number * P_PRICE;
-            float P_totalPrice=P_freightPrice + P_kgPrice;
+            float P_totalprice=P_freightPrice + P_kgPrice;
 
             printf("\n You have purchased for %.1fkr \n",P_kgPrice);
 
-            if (P_totalPrice <= 100)   //between 101 and 350 - 5 % discount
+            if (P_totalprice <= 100)   //between 101 and 350 - 5 % discount
              {
                printf(" There is no discount and the freight price is %.1fkr\n",P_freightPrice);
-               product->potatoes = P_totalPrice;
+               product->potatoes = P_totalprice;
               }
 
-            if (P_totalPrice>=101 && P_totalPrice<=350)
+            if (P_totalprice>=101 && P_totalprice<=350)
               {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_ONE, P_freightPrice);
-                 float New=(P_totalPrice/100)*DISCOUNT_ONE;
-                 float total=P_totalPrice-New;
+                 float New=(P_totalprice/100)*DISCOUNT_ONE;
+                 float total=P_totalprice-New;
                  product->potatoes = total;
                }
 
-            if(P_totalPrice>=351 && P_totalPrice<=600)
+            if(P_totalprice>=351 && P_totalprice<=600)
                  {
                     printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_TWO, P_freightPrice);
-                    float New=(P_totalPrice/100)*DISCOUNT_TWO;
-                    float total=P_totalPrice-New;
+                    float New=(P_totalprice/100)*DISCOUNT_TWO;
+                    float total=P_totalprice-New;
                     product->potatoes = total;
                   }
 
-            if(P_totalPrice>=601)
+            if(P_totalprice>=601)
               {
               printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_THREE, P_freightPrice);
-              float New=(P_totalPrice/100)*DISCOUNT_THREE;
-              float total=P_totalPrice-New;
+              float New=(P_totalprice/100)*DISCOUNT_THREE;
+              float total=P_totalprice-New;
               product->potatoes = total;
                  }
 
@@ -245,39 +247,39 @@ int get_input(struct Product *product)
             get_number();
             float O_freightPrice = number * O_FREIGHT;
             float O_kgPrice = number * O_PRICE;
-            float O_totalPrice=O_freightPrice + O_kgPrice;
+            float O_totalprice=O_freightPrice + O_kgPrice;
 
 
              printf("\n You have purchased for %.1fkr \n",O_kgPrice);
 
-             if (O_totalPrice <= 100)   //under og = 100 - no discount
+             if (O_totalprice <= 100)   //under og = 100 - no discount
               {
                printf(" There is no discount and the freight price is %.1fkr\n",O_freightPrice);
-               product->Onion = O_totalPrice;
+               product->Onion = O_totalprice;
               }
 
-             if (O_totalPrice>=101 && O_totalPrice<=350)  //between 101 and 350 - 5 % discount
+             if (O_totalprice>=101 && O_totalprice<=350)  //between 101 and 350 - 5 % discount
               {
-                 printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_ONE;, O_freightPrice);
-                 float New=(O_totalPrice/100)*DISCOUNT_ONE;;   //calulate discount price
-                 float total=O_totalPrice-New;              //minus the discount to the total price
+                 printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_ONE, O_freightPrice);
+                 float New=(O_totalprice/100)*DISCOUNT_ONE;   //calulate discount price
+                 float total=O_totalprice-New;              //minus the discount to the total price
                  product->Onion = total;                //send it to struct
               }
 
-             if(O_totalPrice>=351 && O_totalPrice<=600) //between 351 and 600 - 10 % discount
+             if(O_totalprice>=351 && O_totalprice<=600) //between 351 and 600 - 10 % discount
              {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_TWO, O_freightPrice);
-                 float New=(O_totalPrice/100)*DISCOUNT_TWO;      //calulate discount price
-                 float total=O_totalPrice-New;                  //minus the discount to the total price
+                 float New=(O_totalprice/100)*DISCOUNT_TWO;      //calulate discount price
+                 float total=O_totalprice-New;                  //minus the discount to the total price
                  product->Onion = total;                 //send it to struct
 
               }
 
-            if(O_totalPrice>=601) //over 600 - 15 % discount
+            if(O_totalprice>=601) //over 600 - 15 % discount
              {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_THREE, O_freightPrice);
-                 float New=(O_totalPrice/100)*DISCOUNT_THREE;
-                 float total=O_totalPrice-New;
+                 float New=(O_totalprice/100)*DISCOUNT_THREE;
+                 float total=O_totalprice-New;
                  product->Onion = total;
               }
 
@@ -293,36 +295,36 @@ int get_input(struct Product *product)
             get_number();
             float S_freightPrice = number*S_FREIGHT;
             float S_kgPrice = number*S_PRICE;
-            float S_totalPrice=S_freightPrice+S_kgPrice;
+            float S_totalprice=S_freightPrice+S_kgPrice;
 
              printf("\n You have purchased for %.1fkr \n",S_kgPrice);
 
-            if (S_totalPrice <= 100)   //between 101 and 350 - 5 % discount
+            if (S_totalprice <= 100)   //between 101 and 350 - 5 % discount
              {
                printf(" There is no discount and the freight price is %.1fkr\n",S_freightPrice);
-               product->Strawberry = S_totalPrice;
+               product->Strawberry = S_totalprice;
              }
-            if (S_totalPrice>=101 && S_totalPrice<=350)    //between 351 and 600 - 10 % discount
+            if (S_totalprice>=101 && S_totalprice<=350)    //between 351 and 600 - 10 % discount
              {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_ONE, S_freightPrice);
-                 float New=(S_totalPrice/100)*DISCOUNT_ONE;
-                 float total=S_totalPrice-New;
+                 float New=(S_totalprice/100)*DISCOUNT_ONE;
+                 float total=S_totalprice-New;
                  product->Strawberry = total;
              }
 
-            if(S_totalPrice>=351 && S_totalPrice<=600) //between 351 and 600 - 10 % discount
+            if(S_totalprice>=351 && S_totalprice<=600) //between 351 and 600 - 10 % discount
              {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_TWO, S_freightPrice);
-                 float New=(S_totalPrice/100)*DISCOUNT_TWO;
-                 float total=S_totalPrice-New;
+                 float New=(S_totalprice/100)*DISCOUNT_TWO;
+                 float total=S_totalprice-New;
                  product->Strawberry = total;
              }
 
-            if(S_totalPrice>=601)   //over 600 - 15 % discount
+            if(S_totalprice>=601)   //over 600 - 15 % discount
             {
                  printf(" There is a discount on %d procent and the freight price is %.1fkr\n",DISCOUNT_THREE, S_freightPrice);
-                 float New=(S_totalPrice/100)*DISCOUNT_THREE;
-                 float total=S_totalPrice-New;
+                 float New=(S_totalprice/100)*DISCOUNT_THREE;
+                 float total=S_totalprice-New;
                  product->Strawberry = total;
             }
 
@@ -351,15 +353,15 @@ int get_input(struct Product *product)
 void chech_out (struct Product *product)
 {
 
-     printf("\nPotatoes=%2.fkr\n", product->potatoes);
-     printf("\nCarrots=%2.fkr\n", product->carrots);
-     printf("\nStrawberry=%2.fkr\n", product->Strawberry);
-     printf("\nOnion=%2.fkr\n", product->Onion);
+     printf("\nPotatoes=%2.fkr\n",product->potatoes);
+     printf("\nCarrots=%2.fkr\n",product->carrots);
+     printf("\nStrawberry=%2.fkr\n",product->Strawberry);
+     printf("\nOnion=%2.fkr\n",product->Onion);
 
     /*
     Takes the total amount that the user has to pay
     an prints it
     */
-     float total = product->potatoes + product->carrots + product->Strawberry + product->Onion;
+     float total=product->potatoes+product->carrots+product->Strawberry+product->Onion;
      printf("\nTotal price for everything purchased = %.2fkr\n\n",total);
 }
