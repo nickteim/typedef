@@ -1,19 +1,27 @@
 #include<stdio.h>
 
+
+//spørg klues med indrykninger i ecplise
+//number er global skal det ændres?
+//den giver 3 værdier efter man har indtastet en negativ eller et bogstav?
+
 unsigned long FibonacciRec (unsigned n);
-void get_number(int n);
-int number=0;
+void get_number();
+
+int number =0;
+
 int main()
 {
     //veribles
+   
     int n;
     int a=0;
     int b=1;
     int c;
     printf("Give me a number for the n´the Fibonacci you want: ");
-    //scanf("%d", &n);
+    get_number();
     n=number;
-    get_number(n);
+    
     
     
     for(int i = 1; i<=n; i++)
@@ -23,9 +31,10 @@ int main()
         b = c;            //set c´s value in b
  
     }
+    
     printf("%d\n",c);
-
     printf("%lu\n",FibonacciRec(n));
+    
     return 0;
 }
 
@@ -37,7 +46,6 @@ unsigned long FibonacciRec (unsigned n)
      if (n > 1)
      {
      return FibonacciRec (n - 1) + FibonacciRec (n - 2);
-     printf("%i",n);
      }
      else 
       {
@@ -64,7 +72,7 @@ void get_number()
          }
 
 
-       if (NoNumber < 0)   //if user types a negative when asked for a positive number
+       if (number < 0)   //if user types a negative when asked for a positive number
         {
             printf("This is not a positive number\n");
             continue;
@@ -78,3 +86,4 @@ void get_number()
     }
 
 }
+
