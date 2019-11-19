@@ -32,8 +32,8 @@ int main()
  
     }
     
-    printf("%d\n",c);
-    printf("%lu\n",FibonacciRec(n));
+    printf("\nMy solusion: %d\n",c);
+    printf("Kluas solusion: %lu\n",FibonacciRec(n));
     
     return 0;
 }
