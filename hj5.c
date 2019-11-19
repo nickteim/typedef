@@ -67,7 +67,7 @@ void get_number()
             for (;;)
                  if (getchar() == '\n')  //eatline
                  break;
-
+            printf("Try again: ");
          continue;
          }
 
@@ -75,6 +75,7 @@ void get_number()
        if (number < 0)   //if user types a negative when asked for a positive number
         {
             printf("This is not a positive number\n");
+            printf("Try again: ");
             continue;
         }
 
@@ -86,4 +87,5 @@ void get_number()
     }
 
 }
+
 
